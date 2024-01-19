@@ -22,6 +22,7 @@ import androidx.compose.ui.Modifier
 import com.example.maestro.presentation.onBoarding.Dimens.MediumPadding2
 import com.example.maestro.presentation.onBoarding.Dimens.pagerwidth
 import com.example.maestro.presentation.onBoarding.Pages
+import com.example.maestro.presentation.onBoarding.common.NewsButton
 import com.example.maestro.presentation.onBoarding.common.NewsTextButton
 import com.example.maestro.presentation.onBoarding.components.PageIndicator
 import com.example.maestro.presentation.onBoarding.components.onBoardingComponents
@@ -43,7 +44,7 @@ fun OnBoardingScreen(){
                     0 -> listOf("","Next")
                     1 -> listOf("Back","Next")
                     2 -> listOf("Back","Next")
-                    3 -> listOf("Back`","Next")
+                    3 -> listOf("Back","Next")
                     4 -> listOf("Back","Get Started")
                     else -> listOf("","")
                 }
@@ -82,7 +83,7 @@ fun OnBoardingScreen(){
                     })
 
                 }
-                NewsTextButton(text = buttonstate.value[1], onClick = {
+                NewsButton(text = buttonstate.value[1], onClick = {
 
                     scpoe.launch {
                         if (pagerState.currentPage ==4){
