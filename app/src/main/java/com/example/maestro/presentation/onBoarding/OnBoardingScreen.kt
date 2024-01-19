@@ -1,11 +1,10 @@
-package com.example.maestro.presentation
+package com.example.maestro.presentation.onBoarding
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.navigationBarsPadding
@@ -19,19 +18,20 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.example.maestro.presentation.onBoarding.Dimens.MediumPadding2
-import com.example.maestro.presentation.onBoarding.Dimens.pagerwidth
-import com.example.maestro.presentation.onBoarding.Pages
-import com.example.maestro.presentation.onBoarding.common.NewsButton
-import com.example.maestro.presentation.onBoarding.common.NewsTextButton
+import com.example.maestro.presentation.common.Dimens.MediumPadding2
+import com.example.maestro.presentation.common.Dimens.pagerwidth
+import com.example.maestro.presentation.common.NewsButton
+import com.example.maestro.presentation.common.NewsTextButton
 import com.example.maestro.presentation.onBoarding.components.PageIndicator
 import com.example.maestro.presentation.onBoarding.components.onBoardingComponents
-import com.example.maestro.ui.theme.TextMedium
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun OnBoardingScreen(){
+fun OnBoardingScreen(
+
+    events: (OnBoardingEvents) ->Unit
+){
 
     Column(modifier = Modifier.fillMaxSize()){
         val pagerState = rememberPagerState(initialPage = 0){
@@ -88,7 +88,7 @@ fun OnBoardingScreen(){
                     scpoe.launch {
                         if (pagerState.currentPage ==4){
 
-                            //navigation
+                            events(OnBoardingEvents.SaveAppEntry)
 
                         }else{
                             pagerState.animateScrollToPage(page = pagerState.currentPage +1)

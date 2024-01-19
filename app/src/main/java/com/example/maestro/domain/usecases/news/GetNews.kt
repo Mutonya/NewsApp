@@ -5,7 +5,7 @@ import com.example.maestro.domain.models.Article
 import com.example.maestro.domain.repository.NewsRepository
 import kotlinx.coroutines.flow.Flow
 
-class GetNewsUse(
+class GetNews(
     private val newsRepository: NewsRepository
 ) {
 

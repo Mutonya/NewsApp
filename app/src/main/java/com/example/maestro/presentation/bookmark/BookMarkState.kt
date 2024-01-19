@@ -1,4 +1,7 @@
 package com.example.maestro.presentation.bookmark
 
-class BookMarkState {
-}
+import com.example.maestro.domain.models.Article
+
+data class BookMarkState (
+    val article: List<Article> = emptyList()
+)

@@ -1,4 +1,6 @@
 package com.example.maestro.presentation.onBoarding
 
-class OnBoardingUseCase {
+sealed class OnBoardingEvents {
+
+    object SaveAppEntry :OnBoardingEvents()
 }

@@ -1,4 +1,4 @@
-package com.example.maestro.data.manager
+package com.example.maestro.domain
 
 import kotlinx.coroutines.flow.Flow
 

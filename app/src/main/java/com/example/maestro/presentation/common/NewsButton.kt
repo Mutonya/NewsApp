@@ -1,4 +1,4 @@
-package com.example.maestro.presentation.onBoarding.common
+package com.example.maestro.presentation.common
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
@@ -9,7 +9,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import com.example.maestro.presentation.onBoarding.common.Dimens.Roundedcorner
+import com.example.maestro.presentation.common.Dimens.Roundedcorner
 
 @Composable
 fun NewsButton(

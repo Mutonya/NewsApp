@@ -13,13 +13,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.maestro.R
-import com.example.maestro.presentation.onBoarding.Dimens.MediumPadding1
-import com.example.maestro.presentation.onBoarding.Dimens.MediumPadding2
+import com.example.maestro.presentation.common.Dimens.MediumPadding1
+import com.example.maestro.presentation.common.Dimens.MediumPadding2
 import com.example.maestro.presentation.onBoarding.Page
 import com.example.maestro.presentation.onBoarding.Pages
 import com.example.maestro.ui.theme.MaestroTheme

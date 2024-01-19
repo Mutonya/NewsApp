@@ -1,6 +1,7 @@
-package com.example.maestro
+package com.example.maestro.presentation.mainactivity
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
@@ -13,7 +14,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
-import com.example.maestro.presentation.MainViewModel
 import com.example.maestro.presentation.navgraph.NavGraph
 import com.example.maestro.ui.theme.MaestroTheme
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
@@ -28,11 +28,12 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         WindowCompat.setDecorFitsSystemWindows(window,false)
         installSplashScreen()
-//            .apply {
-//            setKeepOnScreenCondition{
-//                viewModel.splashCondition
-//            }
-//        }
+            .apply {
+            setKeepOnScreenCondition(condition = {viewModel.splashCondition.value})
+
+
+
+        }
 
 
         setContent {
@@ -40,8 +41,6 @@ class MainActivity : ComponentActivity() {
 
                 val isSysteminDarkMode = isSystemInDarkTheme()
                 val systemController = rememberSystemUiController()
-
-
                 SideEffect {
                     systemController.setSystemBarsColor(
                         color = Color.Transparent,
@@ -51,8 +50,11 @@ class MainActivity : ComponentActivity() {
 
                 Box(modifier = Modifier.background(color = MaterialTheme.colorScheme.background)){
 
-                    val startDestination = viewModel.startdestination
-                    NavGraph(startDestination = startDestination)
+
+                    val startdestination =viewModel.startDestination.value
+                    Log.e("Startdestination",startdestination)
+                    NavGraph(startDestination = startdestination)
+
 
                 }
             }

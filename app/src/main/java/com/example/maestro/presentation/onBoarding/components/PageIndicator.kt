@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import com.example.maestro.presentation.onBoarding.Dimens.indicatorsize
+import com.example.maestro.presentation.common.Dimens.indicatorsize
 import com.example.maestro.ui.theme.BlueGray
 
 @Composable

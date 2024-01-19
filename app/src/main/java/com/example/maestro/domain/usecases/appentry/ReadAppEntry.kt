@@ -1,4 +1,4 @@
-package com.example.maestro.domain.usecases
+package com.example.maestro.domain.usecases.appentry
 
 import com.example.maestro.domain.LocalUserManager
 import kotlinx.coroutines.flow.Flow
