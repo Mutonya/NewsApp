@@ -14,3 +14,6 @@ val TextTitle = Color(0xFF171718)
 
 val BlueGray = Color(0xFFBCBCE4)
 val Tint = Color(0xFF625b71)
+val Primary = Color(0xFF33BB63)
+val BGColor = Color(0xFFE5DCF5)
+val Secondary = Color(0xFF0F3460)

@@ -9,10 +9,14 @@ import com.example.maestro.data.manager.LocalUserManagerImpl
 import com.example.maestro.data.manager.remote.NewsApi
 import com.example.maestro.data.repository.NewsRepositoryImpl
 import com.example.maestro.domain.LocalUserManager
+import com.example.maestro.domain.repository.AuthRepository
+import com.example.maestro.domain.repository.AuthRepositoryImpl
 import com.example.maestro.domain.repository.NewsRepository
 import com.example.maestro.domain.usecases.appentry.AppEntryUseCase
 import com.example.maestro.domain.usecases.appentry.ReadAppEntry
 import com.example.maestro.domain.usecases.appentry.SaveAppEntry
+import com.example.maestro.domain.usecases.authusecases.LoginUseCase
+import com.example.maestro.domain.usecases.authusecases.LoginUseCaseImpl
 import com.example.maestro.domain.usecases.news.DeleteArticle
 import com.example.maestro.domain.usecases.news.GetNews
 import com.example.maestro.domain.usecases.news.NewsUseCase
@@ -22,10 +26,13 @@ import com.example.maestro.domain.usecases.news.SelectedArticle
 import com.example.maestro.domain.usecases.news.UpsetArticle
 import com.example.maestro.utils.Constants.BASE_URL
 import com.example.maestro.utils.Constants.NEWS_DB
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -104,4 +111,26 @@ object AppModule {
     fun proovideNewsDao(
         newsDatabase: NewsDatabase
     ):NewsDao = newsDatabase.newsDao
+
+    @Provides
+    @Singleton
+    fun provideDispatcher():CoroutineDispatcher{
+        return Dispatchers.IO
+    }
+
+    @Module
+    @InstallIn(SingletonComponent::class)
+    interface AppModuleInt{
+        @Binds
+        @Singleton
+
+        fun provideAuthRepo(repository: AuthRepository):AuthRepositoryImpl
+
+        @Binds
+        @Singleton
+
+        fun provideAuthUseCase(useCase:LoginUseCase):LoginUseCaseImpl
+
+
+    }
 }

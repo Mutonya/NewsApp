@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.maestro.presentation.common.Dimens.MediumPadding1
 import com.example.maestro.presentation.common.Dimens.MediumPadding2
@@ -29,6 +30,17 @@ fun onBoardingComponents (modifier: Modifier, page: Page) {
     
     
     Column(modifier = Modifier) {
+
+        Text(text = page.title, modifier = Modifier.
+        padding(horizontal = MediumPadding2)
+            .fillMaxWidth(),
+            textAlign = TextAlign.Center
+            ,
+            style = MaterialTheme.typography.displaySmall.copy(
+                fontWeight = FontWeight.Normal
+            ),
+            color = TextMedium
+        )
         
         Image(
             modifier = Modifier
@@ -42,12 +54,7 @@ fun onBoardingComponents (modifier: Modifier, page: Page) {
         
         Spacer(modifier = Modifier.height(MediumPadding1))
         
-        Text(text = page.title, modifier = Modifier.padding(horizontal = MediumPadding2),
-            style = MaterialTheme.typography.displaySmall.copy(
-                fontWeight = FontWeight.Bold
-            ),
-            color = TextMedium
-            )
+
         Text(text = page.description, modifier = Modifier.padding(horizontal = MediumPadding2),
             style = MaterialTheme.typography.bodyMedium,
             color = TextMedium

@@ -18,6 +18,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import com.example.maestro.presentation.common.Dimens.MediumPadding2
 import com.example.maestro.presentation.common.Dimens.pagerwidth
 import com.example.maestro.presentation.common.NewsButton
@@ -33,7 +34,7 @@ fun OnBoardingScreen(
     events: (OnBoardingEvents) ->Unit
 ){
 
-    Column(modifier = Modifier.fillMaxSize()){
+    Column(modifier = Modifier.fillMaxSize(), verticalArrangement = Arrangement.SpaceBetween){
         val pagerState = rememberPagerState(initialPage = 0){
             Pages.size
         }
@@ -41,34 +42,49 @@ fun OnBoardingScreen(
         val buttonstate = remember{
             derivedStateOf {
                 when (pagerState.currentPage){
-                    0 -> listOf("","Next")
-                    1 -> listOf("Back","Next")
-                    2 -> listOf("Back","Next")
-                    3 -> listOf("Back","Next")
-                    4 -> listOf("Back","Get Started")
+                    0 -> listOf("","Set Up Account")
+                    1 -> listOf("","Set Up Account")
+                    2 -> listOf("","Set Up Account")
+                    3 -> listOf("","Set Up Account")
+                    4 -> listOf("","Finish")
                     else -> listOf("","")
                 }
             }
         }
 
         HorizontalPager(state = pagerState) {index ->
-            onBoardingComponents(modifier = Modifier,page = Pages[index])
+            onBoardingComponents(modifier = Modifier.weight(1f),page = Pages[index])
 
 
 
         }
 
         Spacer(modifier = Modifier.weight(1f))
+        Row(
+            modifier = Modifier.weight(1f,false)
+                .fillMaxWidth()
+                .padding(horizontal = MediumPadding2)
+                .navigationBarsPadding(),
+            horizontalArrangement = Arrangement.Center
+        ){
+            PageIndicator(
+                modifier = Modifier.width(pagerwidth),
+                pageSize = Pages.size,
+                selectedPage =pagerState.currentPage
+            )
+        }
+
+//        Spacer(modifier = Modifier.weight(1f))
+
+
 
         Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = MediumPadding2)
                 .navigationBarsPadding(),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
+            horizontalArrangement = Arrangement.Center
         ){
-            PageIndicator(modifier = Modifier.width(pagerwidth),pageSize = Pages.size, selectedPage =pagerState.currentPage )
 
 
             Row (verticalAlignment = Alignment.CenterVertically){
@@ -107,4 +123,11 @@ fun OnBoardingScreen(
 
     }
 
+}
+
+@Composable
+@Preview
+
+fun previewOnBoarding(){
+    OnBoardingScreen ({ null })
 }

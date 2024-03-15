@@ -12,20 +12,20 @@ data class Page (
 
 val Pages = listOf(
     Page(
-        title = "Stay Informed, Stay Connected",
-        description = "Welcome to Maestro, your go-to source for breaking news, insightful analysis, and personalized content.",
+        title = "Welcome to",
+        description = "A simplified checkin & checkout system for all visitors at various checkpoints in a premises",
         image = R.drawable.maestro
 
     ),
     Page(
-        title = "Tailored Just for You",
-        description = "Customize your news feed to match your interests. Whether it's politics, technology, or entertainment, we've got you covered.",
+        title = "Welcome to",
+        description = "All laptops and computer macinery that a visitor might be having should be scanned for serial code",
         image = R.drawable.maestro
 
     ),
     Page(
-        title = "Be the First to Know",
-        description = "Receive instant notifications for breaking news and updates. Stay ahead with real-time alerts delivered to your device.",
+        title = "Welcome to",
+        description = "A centralised data point to enable swift tracking of all visitors in a premises at a particular time.",
         image = R.drawable.maestro
 
     ),
